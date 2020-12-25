@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/breathing.wav" type="AudioStream" id=2]
-[ext_resource path="res://assets/386929__burghrecords__footsteps-indoor-soft.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/386929__burghrecords__footsteps-indoor-soft.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/breathing.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.7
@@ -34,9 +34,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32131, 0 )
 shape = SubResource( 2 )
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 
 [node name="Bhreating" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 autoplay = true
 [connection signal="area_entered" from="AreaHitOrb" to="." method="_on_AreaHitOrb_area_entered"]

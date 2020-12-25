@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/sonar_ping.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/sounds/sonar_ping.wav" type="AudioStream" id=1]
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Area
 
 
@@ -13,7 +13,7 @@ func _on_Orb_body_entered(body):
 		self.queue_free()
 "
 
-[sub_resource type="SphereMesh" id=1]
+[sub_resource type="SphereMesh" id=2]
 radius = 0.5
 height = 1.0
 
@@ -24,11 +24,10 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="SphereShape" id=2]
+[sub_resource type="SphereShape" id=4]
 radius = 0.5
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("MeshInstance:translation")
@@ -58,23 +57,23 @@ tracks/1/keys = {
 [node name="Orb" type="Area" groups=[
 "Orb",
 ]]
-script = SubResource( 5 )
+script = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 playback_speed = 0.6
-anims/idle = SubResource( 4 )
+anims/idle = SubResource( 5 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="Sonar" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
 max_distance = 8.0
