@@ -42,7 +42,7 @@ margin_bottom = 254.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
-text = "YOu Alone"
+text = "Horor Maze"
 align = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Fader/Control/VBoxContainer"]
