@@ -50,13 +50,12 @@ func _init(grid_map, navigation_id):
 func find_path(start, target):
 	var grid_start = grid_map.world_to_map(start)
 	var grid_end = grid_map.world_to_map(target)
-
+	
 	var astar_path = astar.get_point_path(get_point_index(grid_start), get_point_index(grid_end))
 	var world_path = []
 	
 	for point in astar_path:
 		world_path.append(grid_map.map_to_world(point.x, point.y, point.z))
-	
 	
 	return world_path
 	

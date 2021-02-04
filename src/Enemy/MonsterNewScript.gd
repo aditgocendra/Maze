@@ -8,10 +8,13 @@ var velocity = Vector3.ZERO
 var pathfinder
 var path = null
 
+var jps
+var jps_path
 
 func _ready():
 	self.set_physics_process(false)
 	pathfinder = Pathfinder.new(get_parent(), 1)
+	jps = JPS.new(get_parent(), 1)
 	
 	var timer = Timer.new()
 	timer.wait_time = 1
@@ -49,5 +52,17 @@ func _on_HitboxArea_body_entered(body):
 
 
 func find_path_timer():
+	#astar--------------------------------------
 	path = pathfinder.find_path(global_transform.origin, target.global_transform.origin)
+
+	# end astar----------------------------------
+	# jps --------------------------
+#	var self_pos_map = jps.gridmap.world_to_map(global_transform.origin)
+#	var target_pos_map = jps.gridmap.world_to_map(target.global_transform.origin)
+#	jps_path = jps.find_path(self_pos_map, target_pos_map)
+#	path = jps_path
+#	#end jps---------------------------------
+#	print(path)
+	# end jps---------------------------------------
+#	print(jps_path)
 	path.remove(0)

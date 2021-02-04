@@ -10,6 +10,21 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "JPFNeverMoveDiagonally",
+"language": "GDScript",
+"path": "res://src/Algorithm/JPFNeverMoveDiagonally.gd"
+}, {
+"base": "Node",
+"class": "JPS",
+"language": "GDScript",
+"path": "res://src/Algorithm/JPS.gd"
+}, {
+"base": "Node",
+"class": "JumpNode",
+"language": "GDScript",
+"path": "res://src/Algorithm/JumpNode.gd"
+}, {
+"base": "Node",
 "class": "Pathfinder",
 "language": "GDScript",
 "path": "res://src/Level/Pathfinder.gd"
@@ -18,10 +33,19 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/Player/Player.gd"
+}, {
+"base": "Node",
+"class": "Utility",
+"language": "GDScript",
+"path": "res://src/Algorithm/Utilities.gd"
 } ]
 _global_script_class_icons={
+"JPFNeverMoveDiagonally": "",
+"JPS": "",
+"JumpNode": "",
 "Pathfinder": "",
-"Player": ""
+"Player": "",
+"Utility": ""
 }
 
 [application]
@@ -29,6 +53,10 @@ _global_script_class_icons={
 config/name="HororMaze"
 run/main_scene="res://src/UserInterface/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Autoload="*res://src/Autoload/Autoload.gd"
 
 [input]
 
