@@ -77,4 +77,5 @@ anims/idle = SubResource( 5 )
 stream = ExtResource( 1 )
 autoplay = true
 max_distance = 8.0
+
 [connection signal="body_entered" from="." to="." method="_on_Orb_body_entered"]

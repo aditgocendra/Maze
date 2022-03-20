@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Enemy/MonsterNewScript.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/whispers.wav" type="AudioStream" id=2]
@@ -26,6 +26,8 @@ radius = 0.65
 
 [sub_resource type="CapsuleShape" id=6]
 radius = 0.8
+
+[sub_resource type="BoxShape" id=7]
 
 [node name="Monster" type="KinematicBody"]
 collision_layer = 2
@@ -63,4 +65,11 @@ shape = SubResource( 6 )
 stream = ExtResource( 2 )
 autoplay = true
 max_distance = 10.0
+
+[node name="AreaRun" type="Area" parent="."]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 1.30218, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="AreaRun"]
+shape = SubResource( 7 )
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_HitboxArea_body_entered"]
+[connection signal="body_entered" from="AreaRun" to="." method="_on_AreaRun_body_entered"]

@@ -80,5 +80,6 @@ autoplay = true
 
 [node name="HoverButton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
 [connection signal="pressed" from="CanvasLayer/Fader/Control/VBoxContainer/CenterContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Fader/Control/VBoxContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

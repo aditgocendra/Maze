@@ -7,13 +7,19 @@ var utils
 var JPF
 
 var gridmap : GridMap = null
+var block_container : Spatial = null
 
 var nav_id
 
-func _init(gridmap, nav_id):
+
+
+
+func _init(gridmap, nav_id, block_container):
 	self.gridmap = gridmap
 	self.nav_id = nav_id
+	self.block_container = block_container
 	Autoload.cell = set_nav_tiles()
+	
 
 
 func find_path(start, end):
@@ -89,10 +95,27 @@ func identify_succresors(current, start_node, end_node):
 
 
 func set_nav_tiles():
+	var block_cell = gridmap.world_to_map(get_block()[0])
 	var result = []
+	
+	
 	for cell in gridmap.get_used_cells():
 		var id_object =  gridmap.get_cell_item(cell.x, cell.y, cell.z)
 		if id_object == nav_id:
-			result.append(Vector3(cell.x, cell.y, cell.z))
-			
+			if cell != block_cell:
+				result.append(Vector3(cell.x, cell.y, cell.z))
+		
 	return result
+
+
+
+# check floor for any mesh block 
+func get_block():
+	var child = []
+	for i in range(block_container.get_child_count()):
+		child.append(block_container.get_child(i).global_transform.origin)
+		
+	return child
+
+
+
